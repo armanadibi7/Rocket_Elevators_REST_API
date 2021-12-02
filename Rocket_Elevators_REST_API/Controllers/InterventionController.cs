@@ -39,18 +39,37 @@ namespace Rocket_Elevators_REST_API.Controllers
         public async Task<IActionResult> PostStatus(Intervention input)
         {
             try
-            {
-                var change_status = _context.Interventions.Where(b => b.Id == input.Id).FirstOrDefault();
-                var current_status = change_status.Status;
-                change_status.Status = input.Status;
-                change_status.InterventionStart = DateTime.Now;
-                _context.SaveChanges();
-                return Ok("Status has been successfully changed");
+            {   if(input.Status == "InProgress")
+                {
+                    var change_status = _context.Interventions.Where(b => b.Id == input.Id).FirstOrDefault();
+                    var current_status = change_status.Status;
+                    change_status.Status = input.Status;
+                    change_status.InterventionStart = DateTime.Now;
+                    _context.SaveChanges();
+                    return Ok("Status has been successfully changed");
+                }else if(input.Status == "Completed")
+                {
+                    var change_status = _context.Interventions.Where(b => b.Id == input.Id).FirstOrDefault();
+                    var current_status = change_status.Status;
+                    change_status.Status = input.Status;
+                    change_status.InterventionEnd = DateTime.Now;
+                    _context.SaveChanges();
+                    return Ok("Status has been successfully changed");
+
+
+                }
+                else
+                {
+                    return Ok("Something went wrong. Please verify the request body");
+                }
+               
             }
             catch
             {
                 return BadRequest();
             }
+
+            
         }
     }
 }
