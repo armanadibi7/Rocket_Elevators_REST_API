@@ -35,7 +35,7 @@ namespace Rocket_Elevators_REST_API.Controllers
             }
         }
         [Produces("application/json")]
-        [HttpPost]
+        [HttpPut]
         public async Task<IActionResult> PostStatus(Intervention input)
         {
             try
