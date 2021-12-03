@@ -8,6 +8,7 @@ Implemented using ASP.NET WEB API to deploy this REST API on Microsoft Azure. He
 
 
 Get all the interventions that are In the pending Status.
+
 GET:
 
 ```
