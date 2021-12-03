@@ -23,8 +23,11 @@ Update the status of an intervention to InProgress and the DateTime.
 PUT: http://rocket-elevators-rest-api.azurewebsites.net/intervention
 
 ```
-{ 'id': 1,
-'status': 'InProgress'}
+{ "id": 1,
+"status": "InProgress"
+	
+}
+
 
 
 ```
@@ -35,8 +38,11 @@ Update the status of an intervention to a Completed and add the DateTime
 PUT: http://rocket-elevators-rest-api.azurewebsites.net/intervention
 
 ```
-{ 'id': 1,
-'status': 'Completed'}
+{ "id": 1,
+"status": "Completed"
+	
+}
+
 
 
 
